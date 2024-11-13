@@ -27,7 +27,7 @@ onUnmounted(() => {
 
 <template>
   <GuestLayout title="Sign in to your account">
-    <form @submit.prevent="login" class="space-y-6" method="POST" ref="signinForm">
+    <form @submit.prevent="login" method="POST" ref="signinForm" class="space-y-6">
       <!-- <div v-if="authStore.errorMsg" class="text-danger font-semibold">
         {{ authStore.errorMsg }}
       </div> -->
@@ -37,7 +37,6 @@ onUnmounted(() => {
         <div class="mt-2">
           <InputField
             v-model="user.email"
-            ref="loginRef"
             id="email"
             name="email"
             type="email"
@@ -91,5 +90,3 @@ onUnmounted(() => {
     </form>
   </GuestLayout>
 </template>
-
-<style lang="scss" scoped></style>

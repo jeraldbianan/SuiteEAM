@@ -29,5 +29,3 @@ const onClick = () => {
     <slot></slot>
   </button>
 </template>
-
-<style scoped></style>
