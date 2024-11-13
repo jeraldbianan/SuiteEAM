@@ -1,7 +1,20 @@
 <script setup></script>
 
 <template>
-  <div class="font-neue text-5xl text-red-700">Hello World!</div>
+  <RouterView v-slot="{ Component }">
+    <Transition name="fade" mode="out-in">
+      <component :is="Component"></component>
+    </Transition>
+  </RouterView>
 </template>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
