@@ -1,4 +1,7 @@
 <script setup>
+import { onMounted, onUnmounted, ref } from 'vue';
+import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
+
 import GuestLayout from '@/components/GuestLayout.vue';
 import CustomButton from '@/components/ui/CustomButton.vue';
 import InputField from '@/components/ui/InputField.vue';
@@ -9,11 +12,22 @@ const user = {
   password: '',
   remember: false,
 };
+
+const signinForm = ref();
+const { activate, deactivate } = useFocusTrap(signinForm, { immediate: true });
+
+onMounted(() => {
+  activate();
+});
+
+onUnmounted(() => {
+  deactivate();
+});
 </script>
 
 <template>
   <GuestLayout title="Sign in to your account">
-    <form @submit.prevent="login" class="space-y-6" method="POST">
+    <form @submit.prevent="login" class="space-y-6" method="POST" ref="signinForm">
       <!-- <div v-if="authStore.errorMsg" class="text-danger font-semibold">
         {{ authStore.errorMsg }}
       </div> -->

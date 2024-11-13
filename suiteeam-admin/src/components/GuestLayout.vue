@@ -15,7 +15,7 @@ defineProps({
     >
       <img :src="EAMLogo" alt="Neonella Logo" class="h-32 w-32" />
 
-      <h1 class="font-pd text-center text-2xl/3 font-medium leading-none text-dark">
+      <h1 class="text-center text-2xl/3 font-medium leading-none text-dark">
         {{ title }}
       </h1>
 
